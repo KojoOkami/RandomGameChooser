@@ -34,30 +34,41 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="title">
-        Random Game Chooser
-      </h1>
+
+      <div className="header">
+        <h1 className="title">
+          Random Game Chooser
+        </h1>
+      </div>
+
+      <div className="input">
       <form onSubmit={addGame} className="game-form">
-        <input className="game-input" type="text" value={input} onChange={updateInput} />
-        <button className="add-btn">
-          Add
-        </button>
+        <input className="game-input" type="text" value={input} onChange={updateInput} placeholder="Enter the name of a game and press enter!" />
       </form>
-      <ul>
-      {games.map(game => (
-        <li>
-          {game}
-        </li>
-      ))}
-      </ul>
-      <form onSubmit={getRandomGame} className="randomize-form">
-        <button className="randomize-btn">
-          Get Random Game!
-        </button>
-      </form>
-      <h1>
+      </div>
+
+      <div className="list">
+        {games.map(game => (
+          <p>
+            {game}
+          </p>
+        ))}
+      </div>
+
+      <div className="output">
+        <form onSubmit={getRandomGame} className="randomize-form">
+          <button className="randomize-btn">
+            <b>Get Random Game!</b>
+          </button>
+        </form>
+        <h3>
         {chosen}
-      </h1>
+        </h3>
+      </div>
+      
+      <div className="footer">
+
+      </div>
     </div>
   );
 }
