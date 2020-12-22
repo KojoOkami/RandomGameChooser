@@ -5,6 +5,7 @@ const App = () => {
   
   const [games, setGames] = useState([]);
   const [input, setInput] = useState("");
+  const [chosen, setChosen] = useState("");
 
   useEffect(() => {initFunction()}, []);
 
@@ -20,6 +21,15 @@ const App = () => {
 
   const updateInput = e => {
     setInput(e.target.value);
+  }
+
+  const getRandomGame = e => {
+    e.preventDefault();
+    if (games.length < 2) {
+      setChosen("Not enough games entered!");
+    } else {
+      setChosen(games[Math.floor(Math.random() * games.length)]);
+    }
   }
 
   return (
@@ -40,6 +50,14 @@ const App = () => {
         </li>
       ))}
       </ul>
+      <form onSubmit={getRandomGame} className="randomize-form">
+        <button className="randomize-btn">
+          Get Random Game!
+        </button>
+      </form>
+      <h1>
+        {chosen}
+      </h1>
     </div>
   );
 }
