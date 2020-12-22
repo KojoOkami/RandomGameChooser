@@ -7,11 +7,7 @@ const App = () => {
   const [input, setInput] = useState("");
   const [chosen, setChosen] = useState("");
 
-  useEffect(() => {initFunction()}, []);
-
-  const initFunction = async () => {
-    
-  };
+  useEffect(() => {async () => {}, []});
 
   const addGame = e => {
     e.preventDefault();
